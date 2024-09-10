@@ -26,9 +26,13 @@ const images = [
 ];
 
 
+
 const gallery = document.querySelector('.gallery');
+
 function createGallery(images) {
-  const galleryItems = images.slice(0, 3).map(img => {
+  gallery.innerHTML = '';
+  
+  const galleryItems = images.map(img => {
     const li = document.createElement('li');
     const image = document.createElement('img');
     image.src = img.url;
@@ -38,7 +42,8 @@ function createGallery(images) {
     li.append(image);
     return li.outerHTML; 
   });
-  gallery.insertAdjacentHTML('afterbegin', galleryItems.join('')); 
-}
-createGallery(images);
 
+  gallery.insertAdjacentHTML('afterbegin', galleryItems.join(''));
+}
+
+createGallery(images);
